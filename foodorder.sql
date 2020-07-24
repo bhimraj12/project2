@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2020 at 08:41 AM
+-- Generation Time: Jul 24, 2020 at 09:29 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `foodorder`
 --
+CREATE DATABASE IF NOT EXISTS `foodorder` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `foodorder`;
 
 -- --------------------------------------------------------
 
@@ -65,8 +67,6 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`username`, `fullname`, `email`, `contact`, `address`, `password`) VALUES
-('birju', 'BIRJU KUMAR', 'bkm123r@gmail.com', '8903079750', 'Pondicherry University, SRK HOSTEL ROOM NUMBER-59,', 'Birju123@'),
-('ckumar', 'CHANDAN KUMAR', 'ckj40856@gmail.com', '9487810674', 'Pondicherry University, SRK HOSTEL ROOM NUMBER-59,', 'Ckumar123@'),
 ('customer1', 'customer 1', 'customer1@gmail.com', '3865843385', 'xyz', 'customer1');
 
 -- --------------------------------------------------------
@@ -90,14 +90,14 @@ CREATE TABLE `food` (
 --
 
 INSERT INTO `food` (`F_ID`, `name`, `price`, `description`, `R_ID`, `images_path`, `options`) VALUES
-(81, 'Masala', 50, '1 piece', 7, 'images/breakfast/1.jpg', 'ENABLE'),
-(82, 'Plain', 35, '1 piece', 7, 'images/breakfast/2.jpg', 'ENABLE'),
+(81, 'Masala Dosa', 50, '1 piece', 7, 'images/breakfast/1.jpg', 'ENABLE'),
+(82, 'Plain Dosa', 35, '1 piece', 7, 'images/breakfast/2.jpg', 'ENABLE'),
 (83, 'Idli ', 40, '4 pieces', 7, 'images/breakfast/3.jpg', 'ENABLE'),
 (84, 'Mindu Wada', 40, '4 pieces', 7, 'images/breakfast/4.jpg', 'ENABLE'),
 (85, 'Wada Pav ', 20, '1 piece', 7, 'images/breakfast/5.jpg', 'ENABLE'),
 (86, 'Samosa', 20, '1 piece', 7, 'images/breakfast/6.jpg', 'ENABLE'),
 (87, 'Uttapa  ', 60, '1/4 pieces', 7, 'images/breakfast/7.jpg', 'ENABLE'),
-(88, 'Bread', 30, '1/2', 7, 'images/breakfast/7.jpg', 'DISABLE'),
+(88, 'Bread Sandwich', 50, '2 pieces', 7, 'images/breakfast/7.jpg', 'DISABLE'),
 (89, 'Kanda Poha', 40, '1 plate ', 7, 'images/breakfast/6.jpg', 'DISABLE'),
 (90, 'Sabudana Khichdi', 45, '1 plate ', 7, 'images/breakfast/10.jpg', 'ENABLE'),
 (91, 'Bread Sandwich', 35, '1/2 pieces', 7, 'images/breakfast/8.jpg', 'ENABLE'),
@@ -111,7 +111,100 @@ INSERT INTO `food` (`F_ID`, `name`, `price`, `description`, `R_ID`, `images_path
 (99, 'Upma', 40, '1 plate', 7, 'images/breakfast/14.jpg', 'ENABLE'),
 (100, 'Aloo Paratha', 50, '2 pieces', 7, 'images/breakfast/15.jpg', 'ENABLE'),
 (101, 'Gobi Paratha', 50, '2 pieces', 7, 'images/breakfast/16.jpg', 'ENABLE'),
-(102, 'Idli ', 40, '4 pieces', 7, 'images/breakfast/3.jpg', 'DISABLE');
+(102, 'Idli ', 40, '4 pieces', 7, 'images/breakfast/3.jpg', 'DISABLE'),
+(103, 'Shahi Paneer', 70, '100 g', 7, 'images/lunch/1.jpg', 'ENABLE'),
+(104, 'Matar Paneer', 60, '100 g', 7, 'images/lunch/2.jpg', 'ENABLE'),
+(105, 'Veg. Pulao', 60, '100 g', 7, 'images/lunch/3.jpg', 'ENABLE'),
+(106, 'Veg. Biryani', 150, '150 g', 7, 'images/lunch/5.jpg', 'ENABLE'),
+(107, 'Butter Roti', 60, '3 pieces', 7, 'images/lunch/6.jpg', 'ENABLE'),
+(108, 'Puri Bhaji', 60, '2 puri + 50g Bhaji', 7, 'images/lunch/7.jpg', 'ENABLE'),
+(109, 'Aloo Gobi', 30, '50 g', 7, 'images/lunch/9.jpg', 'ENABLE'),
+(110, 'Methi Bhaji', 30, '50 g', 7, 'images/lunch/10.jpg', 'ENABLE'),
+(111, 'Baingan Bharta', 40, '50 g', 7, 'images/l', 'DISABLE'),
+(112, 'Baingan Bharta', 40, '50 g', 7, 'images/lunch/11.jpg', 'ENABLE'),
+(113, 'Aloo Matar Bhaji', 35, '50 g', 7, 'images/lunch/12.jpg', 'ENABLE'),
+(114, 'Bhindi sabzi', 40, '50 g', 7, 'images/lunch/13.jpg', 'ENABLE'),
+(115, 'Onion Pakoda', 60, '50 g', 7, 'images/lunch/14.jpg', 'ENABLE'),
+(116, 'Potato Pakode', 60, '50 g', 7, 'images/lunch/15.jpg', 'ENABLE'),
+(117, 'Veg. Farm Pizza', 140, '100 g', 7, 'images/junkfood/1.jpg', 'ENABLE'),
+(118, 'Peppy Paneer Pizza', 165, '100 g', 7, 'images/junkfood/2.jpg', 'ENABLE'),
+(119, 'Mexican Green Wave Pizza', 160, '100 g', 7, 'images/junkfood/3.jpg', 'ENABLE'),
+(120, 'Veg. Extravaganza Pizza', 180, '100 g', 7, 'images/junkfood/4.jpg', 'ENABLE'),
+(121, 'Veggie Paradise Pizza', 140, '100 g', 7, 'images/junkfood/5.jpg', 'ENABLE'),
+(122, 'Mushroom Veggie Burger', 80, '1 piece', 7, 'images/junkfood/6.jpg', 'ENABLE'),
+(123, 'Veg. Bean Burger', 65, '1 piece', 7, 'images/junkfood/7.jpg', 'ENABLE'),
+(124, 'Beet Burger', 60, '1 piece', 7, 'images/junkfood/8.jpg', 'ENABLE'),
+(125, 'Vegetable Veg. Burger', 70, '1 piece', 7, 'images/junkfood/9.jpg', 'ENABLE'),
+(126, 'Pav Bhaji', 80, '2 pav + Bhaji', 7, 'images/junkfood/10.jpg', 'ENABLE'),
+(127, 'Chowmein Noodles', 80, '100 g', 7, 'images/junkfood/11.jpg', 'ENABLE'),
+(128, 'Oats Noodles', 70, '100 g', 7, 'images/junkfood/12.jpg', 'ENABLE'),
+(129, 'Hakka Noodles', 80, '100 g', 7, 'images/junkfood/13.jpg', 'ENABLE'),
+(130, 'Manchow Noodles', 65, '100 g', 7, 'images/junkfood/14.jpg', 'ENABLE'),
+(131, 'Schezwan Noodles', 80, '100 g', 7, 'images/junkfood/15.jpg', 'ENABLE'),
+(132, 'Veg. Manchow Soup', 60, '50 g', 7, 'images/junkfood/16.jpg', 'ENABLE'),
+(133, 'Baby Corn Soup', 50, '50 g', 7, 'images/junkfood/17.jpg', 'ENABLE'),
+(134, 'Tomato Soup', 50, '50 g', 7, 'images/junkfood/18.jpg', 'ENABLE'),
+(135, 'Pasta', 70, '60 g', 7, 'images/junkfood/19.jpg', 'ENABLE'),
+(136, 'Schezwan Noodles Frankie', 50, '1 piece', 7, 'images/junkfood/20.jpg', 'ENABLE'),
+(137, 'Veg. Frankie', 50, '1 piece', 7, 'images/junkfood/20.jpg', 'ENABLE'),
+(138, 'Aloo Veg. Frankie', 60, '1 piece', 7, 'images/junkfood/22.jpg', 'ENABLE'),
+(139, 'Chinese Bhel', 40, '50 g', 7, 'images/junkfood/23.jpg', 'ENABLE'),
+(140, 'Pani Puri', 35, '1 plate ', 7, 'images/junkfood/24.jpg', 'ENABLE'),
+(141, 'Sev Puri', 45, '1 plate ', 7, 'images/junkfood/25.jpg', 'ENABLE'),
+(142, 'Ragda Pattices', 40, '1 plate ', 7, 'images/junkfood/26.jpg', 'ENABLE'),
+(143, 'Veg. Manchurian', 50, '1 plate ', 7, 'images/junkfood/27.jpg', 'ENABLE'),
+(144, 'Schezwan Triple Rice', 85, '1 plate ', 7, 'images/junkfood/28.jpg', 'ENABLE'),
+(145, 'Manchurian Gravy', 60, '1 plate ', 7, 'images/junkfood/29.jpg', 'ENABLE'),
+(146, 'Aloo Tikki', 45, '2 pieces', 7, 'images/junkfood/30.jpg', 'ENABLE'),
+(147, 'Dabeli', 50, '2 pieces', 7, 'images/junkfood/31.jpg', 'ENABLE'),
+(148, 'Chaat Kachori', 50, '1 piece', 7, 'images/junkfood/32.jpg', 'ENABLE'),
+(150, 'Penut Butter Chocolate', 180, '100 g', 7, 'images/dessert/1.jpg', 'ENABLE'),
+(151, 'Baileys Cookies', 70, '1 piece', 7, 'images/dessert/2.jpg', 'DISABLE'),
+(152, 'Baileys Coolies', 70, '1 piece', 7, 'images/dessert/3.jpg', 'ENABLE'),
+(153, 'Donnat', 100, '2 pieces', 7, 'images/dessert/4.jpg', 'ENABLE'),
+(154, 'Fruity Summer Dessert', 90, '1 piece', 7, 'images/dessert/5.jpg', 'ENABLE'),
+(155, 'Chocolate & Strawberry Cake', 350, '150 g', 7, 'images/dessert/9.jpg', 'ENABLE'),
+(156, 'Cheesecake Bar Cookie', 60, '2 pieces', 7, 'images/dessert/10.jpg', 'ENABLE'),
+(157, 'Browned Butter Chocolate Cooki', 90, '4 pieces', 7, 'images/dessert/11.jpg', 'ENABLE'),
+(158, 'Nutella Chocolate Tarts', 50, '1 piece', 7, 'images/dessert/12.jpg', 'ENABLE'),
+(159, 'Cream Coconut Tres Leches Cake', 300, '150 g', 7, 'images/dessert/13.jpg', 'ENABLE'),
+(160, 'Chocolate Cake with Lavender R', 500, '200 g', 7, 'images/dessert/14.jpg', 'ENABLE'),
+(161, 'Strawberry Rhubarb Meringue Ta', 80, '1 piece', 7, 'images/dessert/15.jpg', 'ENABLE'),
+(162, 'Peanut Butter Banana Cream Pie', 80, '1 piece', 7, 'images/dessert/16.jpg', 'ENABLE'),
+(163, 'Dark Chocolate Frosted Cake', 450, '150 g', 7, 'images/dessert/17.jpg', 'ENABLE'),
+(164, 'Chocolate Cupcakes', 70, '1 piece', 7, 'images/dessert/18.jpg', 'ENABLE'),
+(165, 'Gulab Jamun', 60, '2 pieces', 7, 'images/dessert/7.jpg', 'ENABLE'),
+(166, 'Gajar Halwa', 120, '50 g', 7, 'images/dessert/19.jpg', 'ENABLE'),
+(167, 'Cannoli Ice Cream', 80, '1 piece', 7, 'images/icecream/1.jpg', 'ENABLE'),
+(168, 'Chocolate Ice Cream', 120, '3 pieces', 7, 'images/icecream/2.jpg', 'ENABLE'),
+(169, 'StrawBerry Ice Cream', 300, '100g', 7, 'images/icecream/3.jpg', 'ENABLE'),
+(170, 'Coconut Ice Cream', 70, '1 piece', 7, 'images/icecream/4.jpg', 'ENABLE'),
+(171, 'Brownie No-Churn Ice Cream', 400, '100 g', 7, 'images/icecream/5.jpg', 'ENABLE'),
+(172, 'Unicorn Ice Cream', 400, '100 g', 7, 'images/icecream/6.jpg', 'ENABLE'),
+(173, 'Mudslide No-churn Ice Cream', 80, '1 piece', 7, 'images/icecream/7.jpg', 'ENABLE'),
+(174, 'Red Velvet No-Churn Ice Cream', 150, '3 pieces', 7, 'images/icecream/9.jpg', 'ENABLE'),
+(175, 'Reese\'s Chocolate Ice Cream', 120, '50 g', 7, 'images/icecream/9.jpg', 'ENABLE'),
+(176, 'Mason Jar Ice Cream', 100, '50 g', 7, 'images/icecream/10.jpg', 'ENABLE'),
+(177, 'Cookie Monster No-Churn Ice Cr', 130, '50 g', 7, 'images/icecream/11.jpg', 'ENABLE'),
+(178, 'Strawberry Vanilla Ice Cream', 100, '2 pieces', 7, 'images/icecream/12.jpg', 'ENABLE'),
+(179, 'Faluda ', 120, '100 g', 7, 'images/icecream/0.jpg', 'ENABLE'),
+(180, 'Masala Tea', 20, '1 cup', 7, 'images/drinks/1.jpg', 'ENABLE'),
+(181, 'Milk', 30, '1 glass', 7, 'images/drinks/2.jpg', 'ENABLE'),
+(182, 'Coffee', 80, '1 cup', 7, 'images/drinks/3.jpg', 'ENABLE'),
+(183, 'Green Tea', 60, '1 cup', 7, 'images/drinks/4.jpg', 'ENABLE'),
+(184, 'MilkShake', 80, '1 glass', 7, 'images/drinks/0.jpg', 'ENABLE'),
+(185, 'Pineapple-Orange punch', 60, '1 glass', 7, 'images/drinks/5.jpg', 'ENABLE'),
+(186, 'Cherry-Infused Punch', 80, '1 glass', 7, 'images/drinks/6.jpg', 'ENABLE'),
+(187, 'Spiced Sangria Punch', 80, '1 glass', 7, 'images/drinks/7.jpg', 'ENABLE'),
+(188, 'White Grape Spritzer', 90, '1 glass', 7, 'images/drinks/8.jpg', 'ENABLE'),
+(189, 'Margarita Mocktails', 100, '1 glass', 7, 'images/drinks/9.jpg', 'ENABLE'),
+(190, 'Peach Bellini Mocktails', 90, '1 glass', 7, 'images/drinks/10.jpg', 'ENABLE'),
+(191, 'Blueberry Moscow Mocktails', 90, '1 glass', 7, 'images/drinks/11.jpg', 'ENABLE'),
+(192, 'Sparkling', 90, '1 glass', 7, 'images/drinks/12.jpg', 'ENABLE'),
+(193, 'Apple Cider Mocktail Mule', 90, '1 glass', 7, 'images/drinks/13.jpg', 'ENABLE'),
+(194, 'Pomegranate Chile Mojito Mockt', 100, '1 glass', 7, 'images/drinks/14.jpg', 'ENABLE'),
+(195, 'Lemon Punch', 60, '1 glass', 7, 'images/drinks/15.jpg', 'ENABLE'),
+(196, 'Orange creamsicle Punch', 100, '1 glass', 7, 'images/drinks/16.jpg', 'ENABLE');
 
 -- --------------------------------------------------------
 
@@ -134,7 +227,7 @@ CREATE TABLE `manager` (
 
 INSERT INTO `manager` (`username`, `fullname`, `email`, `contact`, `address`, `password`) VALUES
 ('Bhimraj12', 'Bhimraj Parihar', 'bhimrajparihar0@gmail.com', '8655552214', 'Room No.104,  Shivamrut App,  Near Shivsena Sakha,', 'bhimraj12@'),
-('dhiraj', 'DHIRAJ kUMAR', 'dk123@gmail.com', '8903079750', 'Pondicherry. Le cafe', 'Dhiraj');
+('kiran', 'kiran Suryawanshi', 'kiransuryawanshi05@gmail.com', '9822420888', 'thane', 'kiran');
 
 -- --------------------------------------------------------
 
@@ -153,6 +246,18 @@ CREATE TABLE `orders` (
   `R_ID` int(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_ID`, `F_ID`, `foodname`, `price`, `quantity`, `order_date`, `username`, `R_ID`) VALUES
+(76, 117, 'Veg. Farm Pizza', 140, 1, '2020-07-22', 'customer1', 7),
+(77, 126, 'Pav Bhaji', 80, 1, '2020-07-22', 'customer1', 7),
+(78, 144, 'Schezwan Triple Rice', 85, 1, '2020-07-22', 'customer1', 7),
+(79, 82, 'Plain Dosa', 35, 1, '2020-07-24', 'customer1', 7),
+(80, 82, 'Plain Dosa', 35, 1, '2020-07-24', 'customer1', 7),
+(81, 82, 'Plain Dosa', 35, 1, '2020-07-24', 'customer1', 7);
+
 -- --------------------------------------------------------
 
 --
@@ -162,9 +267,9 @@ CREATE TABLE `orders` (
 CREATE TABLE `restaurants` (
   `R_ID` int(30) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `email` varchar(30) NOT NULL,
+  `employee` varchar(30) NOT NULL,
   `contact` varchar(30) NOT NULL,
-  `address` varchar(50) NOT NULL,
+  `time` varchar(50) NOT NULL,
   `M_ID` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -172,13 +277,8 @@ CREATE TABLE `restaurants` (
 -- Dumping data for table `restaurants`
 --
 
-INSERT INTO `restaurants` (`R_ID`, `name`, `email`, `contact`, `address`, `M_ID`) VALUES
-(1, 'Nikhil\'s Restaurant', 'nikhil@restaurant.com', '7998562145', 'Karnataka', 'aminnikhil073'),
-(2, 'Roshan\'s Restaurant', 'roshan@restaurant.com', '9887546821', 'Bihar', 'roshanraj07'),
-(3, 'Aditi\'s Restaurant', 'aditi@restaurant.com', '7778564231', 'Goa', 'aditi068'),
-(4, 'Food Exploria', 'ckj40856@gmail.com', '09487810674', 'C:\\xampp\\htdocs\\FoodExploria-master\\images/coffee.', 'ckumar'),
-(6, 'Le Cafe', 'lecafepondi234@gmail.com', '9443369040', 'Pondicherry,rock beach Near,Le cafe', 'dhiraj'),
-(7, 'Rk Restaurant', 'rkrestaurant@gmail.com', '8655552214', 'thane', 'Bhimraj12');
+INSERT INTO `restaurants` (`R_ID`, `name`, `employee`, `contact`, `time`, `M_ID`) VALUES
+
 
 --
 -- Indexes for dumped tables
@@ -228,19 +328,19 @@ ALTER TABLE `restaurants`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `F_ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `F_ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `order_ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `R_ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `R_ID` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

@@ -206,7 +206,7 @@ if (mysqli_num_rows($result) > 0)
 
 <form method="post" action="cart.php?action=add&id=<?php echo $row["F_ID"]; ?>">
 <div class="mypanel" align="center";>
-<img src="<?php echo $row["images_path"]; ?>" class="img-responsive">
+<img class="imgresponsive" src="<?php echo $row["images_path"]; ?>" >
 <h4 class="text-dark"><?php echo $row["name"]; ?></h4>
 <h5 class="text-info"><?php echo $row["description"]; ?></h5>
 <h5 class="text-danger">&#8377; <?php echo $row["price"]; ?>/-</h5>

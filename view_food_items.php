@@ -10,7 +10,7 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
 <html>
 
   <head>
-    <title> Manager Login | Le Cafe' </title>
+    <title> Manager Login | Rk Restaurant </title>
   </head>
 
   <link rel="stylesheet" type = "text/css" href ="css/view_food_items.css">

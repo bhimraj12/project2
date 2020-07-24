@@ -9,9 +9,9 @@ header('Location: managerlogin.php');
 
 
 $name = $conn->real_escape_string($_POST['name']);
-$email = $conn->real_escape_string($_POST['email']);
+$employee = $conn->real_escape_string($_POST['employee']);
 $contact = $conn->real_escape_string($_POST['contact']);
-$address = $conn->real_escape_string($_POST['address']);
+$time = $conn->real_escape_string($_POST['time']);
 
 
 $query = "INSERT INTO RESTAURANTS(name,email,contact,address,M_ID) VALUES('" . $name . "','" . $email . "','" . $contact . "','" . $address ."','" . $_SESSION['login_user1'] ."')";
@@ -63,7 +63,7 @@ if (!$success){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Le Cafe'</a>
+          <a class="navbar-brand" href="index.php">Rk Restaurant</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">

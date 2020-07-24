@@ -113,23 +113,23 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
           <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> MY RESTAURANT</h3>
 
           <div class="form-group">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Your Restaurant's Name" required="">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required="">
           </div>
 
           <div class="form-group">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Your Restaurant's Email" required="">
+            <input type="number" class="form-control" id="employee" name="employee" placeholder="Your  Employeement No." required="">
           </div>     
 
           <div class="form-group">
-            <input type="text" class="form-control" id="contact" name="contact" placeholder="Your Restaurant's Contact Number" required="">
+            <input type="text" class="form-control" id="contact" name="contact" placeholder="Your Contact Number" required="">
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control" id="address" name="address" placeholder="Your Restaurant's Address" required="">
+            <input type="time" class="form-control" id="time" name="time" placeholder="your timing" required="">
           </div>
 
           <div class="form-group">
-          <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right"> ADD RESTAURANT </button>    
+          <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right"> ADD Details </button>    
       </div>
         </form>
 
